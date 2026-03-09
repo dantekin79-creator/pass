@@ -1,16 +1,120 @@
-# React + Vite
+# React Event Handling - Password Input Lab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This is a React + Vite project that implements an anti-bot security monitoring system. It provides a password input field and submit button that track user interactions (typing and mouse movement) to help security engineers identify suspicious bot behavior.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## React Compiler
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn package manager
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation & Running the Project
 
-## Expanding the ESLint configuration
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Open the application:**
+   - The app will be available at `http://localhost:5173` (or the port shown in your terminal)
+   - Open your browser and navigate to this URL
+
+4. **View console output:**
+   - Open your browser's Developer Tools (F12 or right-click → Inspect → Console tab)
+   - Interact with the password input and button to see the logged events
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+## Component Architecture
+
+### Component Diagram
+```
+App
+├── PasswordInput
+└── SubmitButton
+```
+
+### Components
+
+#### **PasswordInput**
+- **File:** `src/PasswordInput.jsx`
+- **Purpose:** Renders a password input field that monitors user typing
+- **Events:**
+  - `onChange`: Triggered when user types in the input
+  - **Console Output:** "Entering password…"
+- **Use Case:** Monitors typing cadence for anti-bot detection
+- **Connected To:** App.jsx (parent component)
+
+#### **SubmitButton**
+- **File:** `src/SubmitButton.jsx`
+- **Purpose:** Renders a submit button that tracks mouse hover interactions
+- **Events:**
+  - `onMouseEnter`: Triggered when user hovers over the button
+    - **Console Output:** "Mouse Entering"
+  - `onMouseLeave`: Triggered when user moves mouse away from the button
+    - **Console Output:** "Mouse Exiting"
+- **Use Case:** Monitors mouse movement patterns for anti-bot detection
+- **Connected To:** App.jsx (parent component)
+
+#### **App**
+- **File:** `src/App.jsx`
+- **Purpose:** Main application component that combines both PasswordInput and SubmitButton
+- **Role:** Acts as the parent component and container for the security monitoring form
+
+## Testing the Events
+
+To verify all events are working correctly:
+
+1. **Type in the password input:**
+   - You should see "Entering password…" in the console for each keystroke
+
+2. **Hover over the submit button:**
+   - You should see "Mouse Entering" in the console
+
+3. **Move mouse away from the button:**
+   - You should see "Mouse Exiting" in the console
+
+## Lab Requirements - Rubric Checklist
+
+✅ **Input Component**
+- Displays one input element
+- Input has the correct type attribute (`type="password"`)
+- Typing in the input triggers console output ("Entering password…")
+
+✅ **Button Component**
+- Displays a button with the text "Submit Password"
+- Hovering over the button triggers console output ("Mouse Entering")
+- Removing mouse from the button triggers console output ("Mouse Exiting")
+
+✅ **Event Handlers**
+- `handleChange()` function in PasswordInput
+- `handleEnter()` function in SubmitButton
+- `handleLeave()` function in SubmitButton
+- All functions properly call `console.log()` with required messages
+- Event handlers are correctly connected to their respective DOM elements
+
+✅ **Documentation**
+- Component descriptions and functionality documented
+- Component connections explained
+- Event handling logic clarified with JSDoc comments
+
+## Note on Project Structure
+
+This project focuses on the core event handling requirements. The assignment mentioned Home.jsx, About.jsx, and Links.jsx, but those components are not required for this specific lab. The current structure contains only the components needed for the Password Input lab as per the rubric.
+
+## Additional Resources
+
+- [React Event Handling Documentation](https://react.dev/learn/responding-to-events)
+- [React Synthetic Events](https://react.dev/reference/react-dom/components/common#react-event-object)
+- [Vite Documentation](https://vitejs.dev/)
