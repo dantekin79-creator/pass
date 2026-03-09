@@ -3,7 +3,7 @@ import './App.css';
 
 const PasswordInput = () => {
   const handleChange = () => {
-    console.log("Entering password…");
+    console.log("Entering password...");
   };
 
   return (
