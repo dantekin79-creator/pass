@@ -36,6 +36,72 @@ This is a React + Vite project that implements an anti-bot security monitoring s
 npm run build
 ```
 
+## Testing Environment
+
+This project includes comprehensive unit and integration tests using Jest and React Testing Library.
+
+### Running Tests
+
+1. **Install dependencies (if not already installed):**
+   ```bash
+   npm install
+   ```
+
+2. **Run all tests:**
+   ```bash
+   npm test
+   ```
+
+3. **Run tests in watch mode (auto-rerun on file changes):**
+   ```bash
+   npm run test:watch
+   ```
+
+4. **Generate coverage report:**
+   ```bash
+   npm run test:coverage
+   ```
+
+### Test Files
+
+#### **PasswordInput.test.jsx**
+Tests for the PasswordInput component including:
+- ✅ Component renders an input element
+- ✅ Input has password type attribute
+- ✅ onChange event triggers console.log with "Entering password…"
+- ✅ Handles rapid typing (edge case)
+- ✅ Handles paste events (edge case)
+- ✅ Handles special characters (edge case)
+
+#### **SubmitButton.test.jsx**
+Tests for the SubmitButton component including:
+- ✅ Component renders a button element
+- ✅ Button displays "Submit Password" text
+- ✅ onMouseEnter event triggers console.log with "Mouse Entering"
+- ✅ onMouseLeave event triggers console.log with "Mouse Exiting"
+- ✅ Both events work in sequence
+- ✅ Handles rapid hover/unhover (edge case)
+- ✅ Handles click events correctly (edge case)
+- ✅ Handles multiple hover sequences (edge case)
+
+#### **App.test.jsx**
+Integration tests for the App component including:
+- ✅ App renders both PasswordInput and SubmitButton
+- ✅ PasswordInput component is functional in App
+- ✅ SubmitButton component is functional in App
+- ✅ Both components work together seamlessly
+- ✅ Handles complete user flow (edge case)
+- ✅ Handles rapid interactions (edge case)
+
+### Test Coverage
+
+The test suite provides comprehensive coverage with:
+- **Component Rendering Tests:** Verify all components render correctly
+- **Event Handler Tests:** Confirm event handlers are called with correct parameters
+- **Console Output Tests:** Validate console.log messages match requirements
+- **Edge Case Tests:** Test rapid interactions, special characters, paste events, and more
+- **Integration Tests:** Verify components work together as expected
+
 ## Component Architecture
 
 ### Component Diagram

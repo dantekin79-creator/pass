@@ -22,7 +22,7 @@ const PasswordInput = () => {
    *
    * @param {Event} event - The change event from the input element
    */
-  const handleChange = (event) => {
+  const handleChange = () => {
     console.log("Entering password…");
   };
 
